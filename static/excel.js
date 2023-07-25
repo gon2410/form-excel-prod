@@ -2,14 +2,13 @@
 const passwd = document.querySelector("#passwordField")
 const excelSubmit = document.querySelector("#downloadButton")
 
-
+excelSubmit.disabled = true;
 passwd.addEventListener("keyup", (e) => {
     const passwordVal = e.target.value;
 
     passwd.classList.remove("is-invalid");
     passwd.classList.remove("is-valid");
     
-    excelSubmit.disabled = true;
     if (passwordVal.length > 0) {
         fetch("/validate-password", {
             body: JSON.stringify({ password: passwordVal }),
