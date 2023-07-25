@@ -24,7 +24,6 @@ passwd.addEventListener("keyup", (e) => {
                     passwd.classList.remove("is-invalid")
                     passwd.classList.add("is-valid")
                     excelSubmit.removeAttribute("disabled");
-                    passwd.value = "";
                 }
             })
     } else {
