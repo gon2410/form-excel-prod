@@ -29,3 +29,8 @@ passwd.addEventListener("keyup", (e) => {
         excelSubmit.disabled = true;
     }
 });
+
+excelSubmit.addEventListener("click", () => {
+    passwd.value = "";
+    excelSubmit.disabled = true;
+})
