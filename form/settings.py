@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'form.wsgi.application'
 
-
+CSRF_TRUSTED_ORIGINS = ["*"]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
