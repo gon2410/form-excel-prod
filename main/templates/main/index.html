@@ -2,8 +2,9 @@
 {% load static %}
 {% block content %}
 
-<div class="container container-fluid mt-5" style="max-width: 350px;">
-    <div class="row">
+<div class="container container-fluid mt-5" style="max-width: 30rem; position: relative;">
+    <img src="{% static 'img/fondo2_50.png'%}" alt="" style="width: 100%; position: absolute;">
+    <div class="row" style="position: absolute; margin-top: 22rem; margin-left: 0.1rem;">
 
         <form action="/" method="post" id="form">
                 
@@ -65,7 +66,7 @@
 
             <!-- SUBMIT BUTTON -->
             <div class="row m-5">
-                <input type="submit" value="SUBMIT" class="btn btn-success" id="submitButton"/>
+                <input type="submit" value="SUBMIT" class="btn btn-outline-dark" id="submitButton"/>
             </div>
         </form>
         <form action="/pass" method="post" id="passwordform">
@@ -85,12 +86,12 @@
             <div class="row justify-content-center">
                 <p class="text-muted text-center" style="font-size: small;">Password: xyzboda</p>
                 <form action="">
-                    <input type="submit" class="btn btn-success mt-3" id="downloadButton" value="DOWNLOAD EXCEL"/>
+                    <input type="submit" class="btn btn-outline-dark mt-3" id="downloadButton" value="DOWNLOAD EXCEL"/>
                 </form>
             </div>
         </form>
     </div>
-
+</div>
     <!-- SUCCESS MODAL MESSAGE -->
     <div class="modal fade" id="modalSuccess" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
         <div class="modal-dialog modal-dialog-centered" style="display: flex; align-items: flex-end;">
@@ -99,6 +100,7 @@
             </div>
         </div>
     </div>
+
     
     <!-- ERROR MODAL MESSAGE -->
     <div class="modal fade" id="modalError" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
@@ -109,15 +111,15 @@
         </div>
     </div>
     
-</div>
+
 
 {% endblock content %}
 
 
 {% block javascript %}
 
-<script type="text/javascript" src="{% static 'firstname_lastname.js'%}"></script>
-<script type="text/javascript" src="{% static 'submit.js'%}"></script>
-<script type="text/javascript" src="{% static 'excel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/firstname_lastname.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/submit.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/excel.js' %}"></script>
 
 {% endblock javascript %}
