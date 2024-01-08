@@ -1,10 +1,5 @@
-// nombre
 const firstnameField = document.querySelector("#firstnameField");
-
-// apellido
 const lastnameField = document.querySelector("#lastnameField");
-
-// boton de confirmacion
 const submitBtn = document.querySelector("#submitButton");
 
 firstnameField.addEventListener("keyup", (e) => {
@@ -22,7 +17,6 @@ firstnameField.addEventListener("keyup", (e) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log("data", data)
                 if (data.username_error) {
                     firstnameField.classList.add("is-invalid");
                     submitBtn.disabled = true;
@@ -45,7 +39,6 @@ lastnameField.addEventListener("keyup", (e) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log("data", data)
                 if (data.lastname_error) {
                     lastnameField.classList.add("is-invalid");
                     submitBtn.disabled = true;
@@ -53,4 +46,3 @@ lastnameField.addEventListener("keyup", (e) => {
             });
     }
 });
-

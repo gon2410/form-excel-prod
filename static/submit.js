@@ -6,16 +6,14 @@ const menu4 = document.querySelector("#menu4") // Celiac
 const modalSuccess = new bootstrap.Modal(document.querySelector("#modalSuccess"), {
     keyboard: false
 })
-
 const modalError = new bootstrap.Modal(document.querySelector("#modalError"), {
     keyboard: false
 })
 
 const modalSuccessMessageContainer = document.querySelector("#modalSuccessMessage");
-
 const modalErrorMessageContainer = document.querySelector("#modalErrorMessage");
 
-document.querySelector("#inviform").addEventListener("submit", function(e){
+document.querySelector("#form").addEventListener("submit", function(e){
     e.preventDefault();
 
     first_name = firstnameField.value;
