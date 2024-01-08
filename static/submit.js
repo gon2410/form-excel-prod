@@ -1,24 +1,19 @@
-// opciones de menu (botones radio)
-const menu1 = document.querySelector("#menu1") // Sin Condicion
-const menu2 = document.querySelector("#menu2") // Vegetariano
-const menu3 = document.querySelector("#menu3") // Vegano
-const menu4 = document.querySelector("#menu4") // Celiaco
+const menu1 = document.querySelector("#menu1") // No Condition
+const menu2 = document.querySelector("#menu2") // Vegetarian
+const menu3 = document.querySelector("#menu3") // Vegan
+const menu4 = document.querySelector("#menu4") // Celiac
 
-// modal exito
-const miModalSuccess = new bootstrap.Modal(document.querySelector("#modalExito"), {
+const modalSuccess = new bootstrap.Modal(document.querySelector("#modalSuccess"), {
     keyboard: false
 })
 
-// modal error
-const miModalError = new bootstrap.Modal(document.querySelector("#modalError"), {
+const modalError = new bootstrap.Modal(document.querySelector("#modalError"), {
     keyboard: false
 })
 
-// mensaje de modal exito
-const mensajeModalExito = document.querySelector("#modalSucc");
+const modalSuccessMessageContainer = document.querySelector("#modalSuccessMessage");
 
-// mensaje de modal error
-const mensajeModalError = document.querySelector("#modalErr");
+const modalErrorMessageContainer = document.querySelector("#modalErrorMessage");
 
 document.querySelector("#inviform").addEventListener("submit", function(e){
     e.preventDefault();
@@ -45,8 +40,6 @@ document.querySelector("#inviform").addEventListener("submit", function(e){
     formData.append('last_name', last_name)
     formData.append('menu', menu);
     formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-    /* console.log(formData); */
-
     
     fetch("", {
         method: 'POST',
@@ -56,9 +49,9 @@ document.querySelector("#inviform").addEventListener("submit", function(e){
     .then((data) => {
         if (data.username_error) {
             submitBtn.setAttribute("disabled", "");
-            mensajeModalError.innerHTML = `<p class="modal-title text-light" style="font-weight: 500;">${data.username_error}</p> 
+            modalErrorMessageContainer.innerHTML = `<p class="modal-title text-light" style="font-weight: 500;">${data.username_error}</p> 
                                                             <span aria-hidden="true">&#9940;</span>`
-            miModalError.show()
+            modalError.show()
             firstnameField.value = "";
             lastnameField.value = "";
 
@@ -68,12 +61,12 @@ document.querySelector("#inviform").addEventListener("submit", function(e){
             menu4.checked = false;
 
             setTimeout(function(){
-                miModalError.hide()
+                modalError.hide()
             }, 2000)
         } else {
-            mensajeModalExito.innerHTML = `<p class="modal-title text-light" style="font-weight: 500;">${data.username_success} &#128515;</p>
+            modalSuccessMessageContainer.innerHTML = `<p class="modal-title text-light" style="font-weight: 500;">${data.username_success} &#128515;</p>
                                                                 <span aria-hidden="true">&#9989;</span>`
-            miModalSuccess.show()
+            modalSuccess.show()
             firstnameField.value = "";
             lastnameField.value = "";
 
@@ -83,7 +76,7 @@ document.querySelector("#inviform").addEventListener("submit", function(e){
             menu4.checked = false;
 
             setTimeout(function(){
-                miModalSuccess.hide()
+                modalSuccess.hide()
             }, 2000)
         }
 
